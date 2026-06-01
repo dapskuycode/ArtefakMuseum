@@ -1,0 +1,42 @@
+{
+  "backbone": "EfficientNetV2B2 (fine-tuned)",
+  "val_accuracy": 0.8764045238494873,
+  "reduction": "PCA128D + UMAP50D",
+  "k_optimal": 15,
+  "results": {
+    "K-Means (K=15)": {
+      "sil_nd": 0.5963,
+      "dbi": 0.5223
+    },
+    "K-Means (K=10)": {
+      "sil_nd": 0.5409,
+      "dbi": 0.5616
+    },
+    "GMM (K=10)": {
+      "sil_nd": 0.5372,
+      "dbi": 0.5881
+    },
+    "HDBSCAN (auto)": {
+      "sil_nd": 0.6576,
+      "dbi": 0.4744
+    }
+  },
+  "sil_2d": {
+    "K-Means (K=15)": {
+      "nd": 0.5963,
+      "2d": 0.2082
+    },
+    "K-Means (K=10)": {
+      "nd": 0.5409,
+      "2d": 0.156
+    },
+    "GMM (K=10)": {
+      "nd": 0.5372,
+      "2d": 0.2611
+    }
+  },
+  "hungarian_accuracy": {
+    "kmeans": 0.4401,
+    "gmm": 0.4233
+  }
+}

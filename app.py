@@ -157,11 +157,8 @@ def load_dec_models():
     dec_path = os.path.join(MODEL_DIR, "dec_model.keras")
     ft_model_path = os.path.join(BASE_DIR, "hasil_finetuned", "model", "finetuned_final.keras")
     
-    if not os.path.exists(dec_path):
-        dec_path = "/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_dec_softmax_10d/model/dec_model.keras"
-    if not os.path.exists(ft_model_path):
-        ft_model_path = "/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_finetuned/model/finetuned_final.keras"
-        
+    # Resolved relative to BASE_DIR for universal portability
+    
     # 1. Load fine-tuned backbone & head layers
     ft_model = tf.keras.models.load_model(ft_model_path, compile=False)
     
@@ -353,9 +350,7 @@ with tab_predict:
             cluster_folder_name = f"cluster_{predicted_cluster:02d}__{mapped_category.replace(' ', '_')}"
             target_cluster_path = os.path.join(CLUSTER_DIR, cluster_folder_name)
             
-            # Fallback path if custom relative doesn't resolve
-            if not os.path.exists(target_cluster_path):
-                target_cluster_path = f"/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_dec_softmax_10d/cluster_dec/{cluster_folder_name}"
+            # Search within CLUSTER_DIR (resolved relative to BASE_DIR)
             
             if os.path.exists(target_cluster_path):
                 files = [os.path.join(target_cluster_path, f) for f in os.listdir(target_cluster_path) if f.lower().endswith(('.jpg','.jpeg','.png','.heic')) and not f.startswith('.')]
@@ -390,9 +385,6 @@ with tab_charts:
         st.markdown('<div class="card-header">📈 Progress Training & Silhouette Score</div>', unsafe_allow_html=True)
         
         train_chart_path = os.path.join(GRAFIK_DIR, "00_dec_training.png")
-        if not os.path.exists(train_chart_path):
-            train_chart_path = "/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_dec_softmax_10d/grafik/00_dec_training.png"
-            
         if os.path.exists(train_chart_path):
             st.image(train_chart_path, caption="Progress Loss (KL-Divergence) & Silhouette Score Selama Refinement DEC", use_container_width=True)
         else:
@@ -404,9 +396,6 @@ with tab_charts:
         st.markdown('<div class="card-header">📊 Heatmap Confusion Matrix Evaluasi Klaster</div>', unsafe_allow_html=True)
         
         conf_chart_path = os.path.join(GRAFIK_DIR, "02_confusion.png")
-        if not os.path.exists(conf_chart_path):
-            conf_chart_path = "/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_dec_softmax_10d/grafik/02_confusion.png"
-            
         if os.path.exists(conf_chart_path):
             st.image(conf_chart_path, caption="Heatmap Akurasi Klasifikasi 1-to-1 Ground Truth vs DEC Cluster", use_container_width=True)
         else:
@@ -419,9 +408,6 @@ with tab_charts:
         st.markdown('<div class="card-header">🗺️ Visualisasi Sebaran Dimensi t-SNE & UMAP 2D</div>', unsafe_allow_html=True)
         
         tsne_chart_path = os.path.join(GRAFIK_DIR, "01_tsne_umap.png")
-        if not os.path.exists(tsne_chart_path):
-            tsne_chart_path = "/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_dec_softmax_10d/grafik/01_tsne_umap.png"
-            
         if os.path.exists(tsne_chart_path):
             st.image(tsne_chart_path, caption="Peta 2D Proyeksi Ruang Laten 10D Menggunakan t-SNE dan UMAP", use_container_width=True)
         else:
@@ -433,9 +419,6 @@ with tab_charts:
         st.markdown('<div class="card-header">📉 Analisis Koefisien Siluet per Klaster</div>', unsafe_allow_html=True)
         
         sil_chart_path = os.path.join(GRAFIK_DIR, "03_silhouette.png")
-        if not os.path.exists(sil_chart_path):
-            sil_chart_path = "/Users/mdaffaatstsaqif/Downloads/klaster asli/hasil_dec_softmax_10d/grafik/03_silhouette.png"
-            
         if os.path.exists(sil_chart_path):
             st.image(sil_chart_path, caption="Plot Koefisien Siluet Per-Sampel untuk Menunjukkan Kerapatan Klaster", use_container_width=True)
         else:

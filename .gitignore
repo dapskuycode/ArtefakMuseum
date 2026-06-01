@@ -1,0 +1,30 @@
+# Ignore dataset folders (contains heavy raw images)
+koleksi arkeologi/
+koleksi biologi/
+koleksi etnografi/
+koleksi geologi/
+koleksi keramik/
+koleksi kesenian/
+koleksi naskah kuno/
+koleksi numismatik/
+koleksi senjata/
+koleksi teknologika/
+
+# Ignore custom python scratch files and notebooks in subfolders
+.gemini/
+__pycache__/
+*.ipynb_checkpoints/
+.DS_Store
+
+# Ignore heavy output cluster sample images (1.3+ GiB)
+hasil_dec_softmax_10d/cluster_dec/
+hasil_dec_softmax_10d/feat_dec.npy
+hasil_dec_softmax_10d/dec_labels.npy
+hasil_dec_softmax_10d/q_final.npy
+
+# Ignore other unused model training output folders (very heavy cluster images)
+hasil_transfer/
+hasil_boosted/
+hasil_optimized/
+hasil_dec_improved/
+hasil_final/
