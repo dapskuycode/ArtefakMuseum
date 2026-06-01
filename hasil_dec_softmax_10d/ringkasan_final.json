@@ -1,0 +1,18 @@
+{
+  "method": "Optimized & Improved DEC (Pre-trained Weight Init + Identity Centroid Direct Refinement)",
+  "encoder": "EfficientNetV2B2 pretrained fine-tuned",
+  "latent_dim": 10,
+  "dec_iterations": 480,
+  "distribution": "Student-t (alpha=1.0)",
+  "loss": "KL Divergence KL(P||Q) + Guided CE",
+  "results": {
+    "pre_dec_sil": 0.8567,
+    "pre_dec_dbi": 0.2384,
+    "dec_embed_sil": 0.9687,
+    "dec_embed_dbi": 0.1098,
+    "dec_softq_sil": 0.9785,
+    "dec_softq_dbi": 0.0845,
+    "hungarian_acc": 0.9511,
+    "best_silhouette": 0.9785
+  }
+}
