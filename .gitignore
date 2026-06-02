@@ -28,3 +28,17 @@ hasil_boosted/
 hasil_optimized/
 hasil_dec_improved/
 hasil_final/
+
+# Ignore heavy output cluster sample images inside hasil_finetuned (keeps only model/finetuned_final.keras)
+hasil_finetuned/cluster_kmeans/
+hasil_finetuned/grafik/
+hasil_finetuned/features_final.npy
+hasil_finetuned/features_finetuned.npy
+hasil_finetuned/gmm_labels.npy
+hasil_finetuned/km_labels.npy
+hasil_finetuned/manifest_gmm.csv
+hasil_finetuned/manifest_hdbscan.csv
+hasil_finetuned/manifest_kmeans.csv
+hasil_finetuned/ringkasan_final.json
+hasil_finetuned/model/phase1_best.keras
+hasil_finetuned/model/phase2_best.keras
